@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/account.iml" filepath="$PROJECT_DIR$/account.iml" />
+      <module fileurl="file://$PROJECT_DIR$/account-api/accountapi.iml" filepath="$PROJECT_DIR$/account-api/accountapi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/account-common/accountcommon.iml" filepath="$PROJECT_DIR$/account-common/accountcommon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/account-dao/accountdao.iml" filepath="$PROJECT_DIR$/account-dao/accountdao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/account-domain/accountdomain.iml" filepath="$PROJECT_DIR$/account-domain/accountdomain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/account-service/accountservice.iml" filepath="$PROJECT_DIR$/account-service/accountservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/account-web/accountweb.iml" filepath="$PROJECT_DIR$/account-web/accountweb.iml" />
+    </modules>
+  </component>
+</project>

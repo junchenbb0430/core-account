@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="accountservice" />
+        <module name="accountweb" />
+        <module name="accountapi" />
+        <module name="accountdomain" />
+        <module name="accountdao" />
+        <module name="accountcommon" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="account" target="1.8" />
+      <module name="accountapi" target="1.8" />
+      <module name="accountcommon" target="1.8" />
+      <module name="accountdao" target="1.8" />
+      <module name="accountdomain" target="1.8" />
+      <module name="accountservice" target="1.8" />
+      <module name="accountweb" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="account" options="-parameters" />
+      <module name="accountapi" options="-parameters" />
+      <module name="accountcommon" options="-parameters" />
+      <module name="accountdao" options="-parameters" />
+      <module name="accountdomain" options="-parameters" />
+      <module name="accountservice" options="-parameters" />
+      <module name="accountweb" options="-parameters" />
+    </option>
+  </component>
+</project>
