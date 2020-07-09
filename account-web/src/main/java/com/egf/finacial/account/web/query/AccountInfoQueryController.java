@@ -1,12 +1,17 @@
 package com.egf.finacial.account.web.query;
 
+import com.egf.financial.account.service.IAccountInfoQueryService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RequestMapping("/query")
 @RestController
-public class AccountInfoQuery {
+public class AccountInfoQueryController {
+
+    @Autowired
+    private IAccountInfoQueryService accountInfoService;
 
     /**
      * 查询单个账户明细
