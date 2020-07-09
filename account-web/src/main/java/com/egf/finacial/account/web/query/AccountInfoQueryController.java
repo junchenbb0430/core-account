@@ -20,6 +20,8 @@ public class AccountInfoQueryController {
      */
     @RequestMapping("/acctDetail")
     public String  queryAccountDetail(@RequestBody  String  acctReq){
+        String   acctNo = null;
+        accountInfoService.queryAccountDetailByAcctNo(acctNo);
         return null;
     }
 }
