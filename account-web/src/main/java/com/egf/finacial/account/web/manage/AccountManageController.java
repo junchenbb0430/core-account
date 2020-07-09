@@ -23,7 +23,7 @@ public class AccountManageController {
         return null;
     }
 
-    @RequestMapping("/acctDetail")
+    @RequestMapping(value = "/acctDetail")
     public String  getAccountDetailInfo(@RequestBody String  acctReq){
         return null;
     }
