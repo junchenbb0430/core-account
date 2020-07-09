@@ -22,4 +22,9 @@ public class AccountManageController {
     public String  unfreezeAccount(@RequestBody String acctReq){
         return null;
     }
+
+    @RequestMapping("/acctDetail")
+    public String  getAccountDetailInfo(@RequestBody String  acctReq){
+        return null;
+    }
 }
