@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.egf.financial.account.mapper.AccountDetailFlowMapper">
+  <resultMap id="BaseResultMap" type="com.egf.financial.account.entity.AccountDetailFlowEntity">
+    <id column="account_detail_id" jdbcType="INTEGER" property="accountDetailId" />
+    <result column="customer_id" jdbcType="VARCHAR" property="customerId" />
+    <result column="account_no" jdbcType="VARCHAR" property="accountNo" />
+    <result column="account_name" jdbcType="VARCHAR" property="accountName" />
+    <result column="account_type" jdbcType="VARCHAR" property="accountType" />
+    <result column="channel_id" jdbcType="VARCHAR" property="channelId" />
+    <result column="trans_flow" jdbcType="VARCHAR" property="transFlow" />
+    <result column="biz_type" jdbcType="VARCHAR" property="bizType" />
+    <result column="trans_date" jdbcType="TIMESTAMP" property="transDate" />
+    <result column="trans_type" jdbcType="VARCHAR" property="transType" />
+    <result column="account_amount" jdbcType="DECIMAL" property="accountAmount" />
+    <result column="currency" jdbcType="VARCHAR" property="currency" />
+    <result column="opposite_account_no" jdbcType="VARCHAR" property="oppositeAccountNo" />
+    <result column="opposite_account_name" jdbcType="VARCHAR" property="oppositeAccountName" />
+    <result column="trans_time" jdbcType="TIMESTAMP" property="transTime" />
+    <result column="trans_status" jdbcType="VARCHAR" property="transStatus" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    account_detail_id, customer_id, account_no, account_name, account_type, channel_id, 
+    trans_flow, biz_type, trans_date, trans_type, account_amount, currency, opposite_account_no, 
+    opposite_account_name, trans_time, trans_status, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_EGF_ACCOUNT_DETAIL_FLOW
+    where account_detail_id = #{accountDetailId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from T_EGF_ACCOUNT_DETAIL_FLOW
+    where account_detail_id = #{accountDetailId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.egf.financial.account.entity.AccountDetailFlowEntity">
+    insert into T_EGF_ACCOUNT_DETAIL_FLOW (account_detail_id, customer_id, account_no, 
+      account_name, account_type, channel_id, 
+      trans_flow, biz_type, trans_date, 
+      trans_type, account_amount, currency, 
+      opposite_account_no, opposite_account_name, 
+      trans_time, trans_status, create_time, 
+      update_time)
+    values (#{accountDetailId,jdbcType=INTEGER}, #{customerId,jdbcType=VARCHAR}, #{accountNo,jdbcType=VARCHAR}, 
+      #{accountName,jdbcType=VARCHAR}, #{accountType,jdbcType=VARCHAR}, #{channelId,jdbcType=VARCHAR}, 
+      #{transFlow,jdbcType=VARCHAR}, #{bizType,jdbcType=VARCHAR}, #{transDate,jdbcType=TIMESTAMP}, 
+      #{transType,jdbcType=VARCHAR}, #{accountAmount,jdbcType=DECIMAL}, #{currency,jdbcType=VARCHAR}, 
+      #{oppositeAccountNo,jdbcType=VARCHAR}, #{oppositeAccountName,jdbcType=VARCHAR}, 
+      #{transTime,jdbcType=TIMESTAMP}, #{transStatus,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.egf.financial.account.entity.AccountDetailFlowEntity">
+    insert into T_EGF_ACCOUNT_DETAIL_FLOW
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="accountDetailId != null">
+        account_detail_id,
+      </if>
+      <if test="customerId != null">
+        customer_id,
+      </if>
+      <if test="accountNo != null">
+        account_no,
+      </if>
+      <if test="accountName != null">
+        account_name,
+      </if>
+      <if test="accountType != null">
+        account_type,
+      </if>
+      <if test="channelId != null">
+        channel_id,
+      </if>
+      <if test="transFlow != null">
+        trans_flow,
+      </if>
+      <if test="bizType != null">
+        biz_type,
+      </if>
+      <if test="transDate != null">
+        trans_date,
+      </if>
+      <if test="transType != null">
+        trans_type,
+      </if>
+      <if test="accountAmount != null">
+        account_amount,
+      </if>
+      <if test="currency != null">
+        currency,
+      </if>
+      <if test="oppositeAccountNo != null">
+        opposite_account_no,
+      </if>
+      <if test="oppositeAccountName != null">
+        opposite_account_name,
+      </if>
+      <if test="transTime != null">
+        trans_time,
+      </if>
+      <if test="transStatus != null">
+        trans_status,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="accountDetailId != null">
+        #{accountDetailId,jdbcType=INTEGER},
+      </if>
+      <if test="customerId != null">
+        #{customerId,jdbcType=VARCHAR},
+      </if>
+      <if test="accountNo != null">
+        #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null">
+        #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountType != null">
+        #{accountType,jdbcType=VARCHAR},
+      </if>
+      <if test="channelId != null">
+        #{channelId,jdbcType=VARCHAR},
+      </if>
+      <if test="transFlow != null">
+        #{transFlow,jdbcType=VARCHAR},
+      </if>
+      <if test="bizType != null">
+        #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="transDate != null">
+        #{transDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transType != null">
+        #{transType,jdbcType=VARCHAR},
+      </if>
+      <if test="accountAmount != null">
+        #{accountAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="currency != null">
+        #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="oppositeAccountNo != null">
+        #{oppositeAccountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="oppositeAccountName != null">
+        #{oppositeAccountName,jdbcType=VARCHAR},
+      </if>
+      <if test="transTime != null">
+        #{transTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transStatus != null">
+        #{transStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.egf.financial.account.entity.AccountDetailFlowEntity">
+    update T_EGF_ACCOUNT_DETAIL_FLOW
+    <set>
+      <if test="customerId != null">
+        customer_id = #{customerId,jdbcType=VARCHAR},
+      </if>
+      <if test="accountNo != null">
+        account_no = #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null">
+        account_name = #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountType != null">
+        account_type = #{accountType,jdbcType=VARCHAR},
+      </if>
+      <if test="channelId != null">
+        channel_id = #{channelId,jdbcType=VARCHAR},
+      </if>
+      <if test="transFlow != null">
+        trans_flow = #{transFlow,jdbcType=VARCHAR},
+      </if>
+      <if test="bizType != null">
+        biz_type = #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="transDate != null">
+        trans_date = #{transDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transType != null">
+        trans_type = #{transType,jdbcType=VARCHAR},
+      </if>
+      <if test="accountAmount != null">
+        account_amount = #{accountAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="currency != null">
+        currency = #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="oppositeAccountNo != null">
+        opposite_account_no = #{oppositeAccountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="oppositeAccountName != null">
+        opposite_account_name = #{oppositeAccountName,jdbcType=VARCHAR},
+      </if>
+      <if test="transTime != null">
+        trans_time = #{transTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transStatus != null">
+        trans_status = #{transStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where account_detail_id = #{accountDetailId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.egf.financial.account.entity.AccountDetailFlowEntity">
+    update T_EGF_ACCOUNT_DETAIL_FLOW
+    set customer_id = #{customerId,jdbcType=VARCHAR},
+      account_no = #{accountNo,jdbcType=VARCHAR},
+      account_name = #{accountName,jdbcType=VARCHAR},
+      account_type = #{accountType,jdbcType=VARCHAR},
+      channel_id = #{channelId,jdbcType=VARCHAR},
+      trans_flow = #{transFlow,jdbcType=VARCHAR},
+      biz_type = #{bizType,jdbcType=VARCHAR},
+      trans_date = #{transDate,jdbcType=TIMESTAMP},
+      trans_type = #{transType,jdbcType=VARCHAR},
+      account_amount = #{accountAmount,jdbcType=DECIMAL},
+      currency = #{currency,jdbcType=VARCHAR},
+      opposite_account_no = #{oppositeAccountNo,jdbcType=VARCHAR},
+      opposite_account_name = #{oppositeAccountName,jdbcType=VARCHAR},
+      trans_time = #{transTime,jdbcType=TIMESTAMP},
+      trans_status = #{transStatus,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where account_detail_id = #{accountDetailId,jdbcType=INTEGER}
+  </update>
+</mapper>

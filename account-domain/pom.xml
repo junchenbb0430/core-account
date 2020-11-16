@@ -11,5 +11,12 @@
 
     <artifactId>account-domain</artifactId>
 
+    <dependencies>
 
+        <dependency>
+            <groupId>com.egf.finacial</groupId>
+            <artifactId>account-dao</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>

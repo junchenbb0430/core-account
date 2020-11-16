@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<packaging>pom</packaging>
 	<groupId>com.egf.finacial</groupId>
 	<artifactId>account</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>account</name>
-	<!--	-->
+
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -27,9 +27,15 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<springboot.version>2.1.15.RELEASE</springboot.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
+			<dependency>
+				<groupId>org.mybatis.spring.boot</groupId>
+				<artifactId>mybatis-spring-boot-starter</artifactId>
+				<version>2.1.1</version>
+			</dependency>
 			<dependency>
 				<groupId>org.redisson</groupId>
 				<artifactId>redisson</artifactId>
@@ -44,27 +50,30 @@
 			<dependency>
 				<groupId>com.google.guava</groupId>
 				<artifactId>guava</artifactId>
-				<version>23.0</version>
+				<version>30.0-jre</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter</artifactId>
-				<version>2.1.15.RELEASE</version>
+				<version>${springboot.version}</version>
 			</dependency>
+
+			<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-jdbc -->
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-jdbc</artifactId>
-				<version>2.1.15.RELEASE</version>
+				<version>${springboot.version}</version>
 			</dependency>
+
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-web</artifactId>
-				<version>2.1.15.RELEASE</version>
+				<version>${springboot.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-autoconfigure</artifactId>
-				<version>2.1.15.RELEASE</version>
+				<version>${springboot.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>mysql</groupId>
@@ -72,21 +81,21 @@
 				<version>5.1.46</version>
 				<scope>runtime</scope>
 			</dependency>
+
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-configuration-processor</artifactId>
-				<version>2.1.15.RELEASE</version>
-				<optional>true</optional>
+				<version>${springboot.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-logging</artifactId>
-				<version>2.1.15.RELEASE</version>
+				<version>${springboot.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-aop</artifactId>
-				<version>2.1.15.RELEASE</version>
+				<version>${springboot.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.projectlombok</groupId>
@@ -94,9 +103,19 @@
 				<version>1.18.12</version>
 			</dependency>
 			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid-spring-boot-starter</artifactId>
+				<version>1.1.24</version>
+			</dependency>
+			<dependency>
+				<groupId>com.zaxxer</groupId>
+				<artifactId>HikariCP</artifactId>
+				<version>3.4.5</version>
+			</dependency>
+			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-test</artifactId>
-				<version>2.1.15.RELEASE</version>
+				<version>${springboot.version}</version>
 				<scope>test</scope>
 				<exclusions>
 					<exclusion>
