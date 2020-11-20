@@ -9,6 +9,17 @@ public class AccountInfoQueryServiceImpl implements IAccountInfoQueryService {
 
     @Override
     public AccountInfoBo queryAccountDetailByAcctNo(String acctNo) {
+
         return null;
+    }
+
+    @Override
+    public void openAccount(AccountInfoBo acctInfo) {
+
+    }
+
+    @Override
+    public void transferIn2Acconts(String debtAcctNo, String creditAcctNo, Double amount) {
+
     }
 }

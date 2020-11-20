@@ -66,6 +66,10 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-test-autoconfigure</artifactId>
+        </dependency>
     </dependencies>
     <build>
 
@@ -77,7 +81,7 @@
                 <!-- 集成spring-boot-starter-parent可以省略下面配置
                 <version>2.1.15.RELEASE</version> -->
                 <configuration>
-                    <mainClass>com.egf.finacial.account.web.AccountApplication</mainClass>
+                    <mainClass>com.egf.finacial.account.AccountApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>

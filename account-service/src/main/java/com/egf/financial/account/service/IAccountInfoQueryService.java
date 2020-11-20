@@ -8,5 +8,24 @@ import com.egf.financial.account.bo.AccountInfoBo;
  */
 public interface IAccountInfoQueryService {
 
+    /**
+     *
+     * @param acctNo
+     * @return
+     */
     public AccountInfoBo queryAccountDetailByAcctNo(String acctNo);
+
+    /**
+     *
+     * @param acctInfo
+     */
+    public  void  openAccount(AccountInfoBo acctInfo);
+
+    /**
+     *
+     * @param debtAcctNo
+     * @param creditAcctNo
+     * @param amount
+     */
+    public  void  transferIn2Acconts(String debtAcctNo,String creditAcctNo,Double  amount);
 }

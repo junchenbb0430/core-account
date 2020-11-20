@@ -18,7 +18,7 @@ public class AccountInfoQueryController {
      * @param acctReq
      * @return
      */
-    @RequestMapping("/acctDetail")
+    @RequestMapping("/queryDetail")
     public String  queryAccountDetail(@RequestBody  String  acctReq){
         String   acctNo = null;
         accountInfoService.queryAccountDetailByAcctNo(acctNo);
