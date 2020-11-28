@@ -6,7 +6,7 @@ import com.egf.financial.account.bo.AccountInfoBo;
 /**
  * 账户信息查询服务
  */
-public interface IAccountInfoQueryService {
+public interface IAccountInfoManageService {
 
     /**
      *
@@ -19,7 +19,7 @@ public interface IAccountInfoQueryService {
      *
      * @param acctInfo
      */
-    public  void  openAccount(AccountInfoBo acctInfo);
+    public  AccountInfoBo  openAccount(AccountInfoBo acctInfo);
 
     /**
      *

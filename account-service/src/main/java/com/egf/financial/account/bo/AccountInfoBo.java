@@ -7,6 +7,9 @@ import java.math.BigDecimal;
 @Data
 public class AccountInfoBo {
 
+    /**
+     *
+     */
     private   String  acctNo;
 
     private    String  acctName;
