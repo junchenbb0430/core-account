@@ -7,7 +7,7 @@ import lombok.Data;
  * @param <T>
  */
 @Data
-public class ReponseResult <T>{
+public class ResponseResult<T>{
 
     private   String code;
 
