@@ -14,4 +14,5 @@ public interface AccountMapper {
     int updateByPrimaryKeySelective(AccountEntity record);
 
     int updateByPrimaryKey(AccountEntity record);
+
 }

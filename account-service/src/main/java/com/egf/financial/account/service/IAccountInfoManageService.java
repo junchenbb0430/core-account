@@ -27,5 +27,5 @@ public interface IAccountInfoManageService {
      * @param creditAcctNo
      * @param amount
      */
-    public  void  transferIn2Acconts(String debtAcctNo,String creditAcctNo,Double  amount);
+    public  void  transferInAccount(String debtAcctNo,String creditAcctNo,Double  amount);
 }
