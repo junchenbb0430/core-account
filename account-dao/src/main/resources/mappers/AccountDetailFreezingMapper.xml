@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.egf.financial.account.mapper.AccountDetailFreezingMapper">
   <resultMap id="BaseResultMap" type="com.egf.financial.account.entity.AccountDetailFreezingEntity">
-    <id column="freezing_id" jdbcType="VARCHAR" property="freezingId" />
+    <id column="freezing_id" jdbcType="INTEGER" property="freezingId" />
     <result column="account_no" jdbcType="VARCHAR" property="accountNo" />
     <result column="customer_id" jdbcType="VARCHAR" property="customerId" />
     <result column="account_name" jdbcType="VARCHAR" property="accountName" />
@@ -40,7 +40,7 @@
       account_amount, currency, trans_time, 
       trans_status, create_time, update_time
       )
-    values (#{freezingId,jdbcType=VARCHAR}, #{accountNo,jdbcType=VARCHAR}, #{customerId,jdbcType=VARCHAR}, 
+    values (#{freezingId,jdbcType=INTEGER}, #{accountNo,jdbcType=VARCHAR}, #{customerId,jdbcType=VARCHAR},
       #{accountName,jdbcType=VARCHAR}, #{accountType,jdbcType=VARCHAR}, #{transFlow,jdbcType=VARCHAR}, 
       #{bizType,jdbcType=VARCHAR}, #{transDate,jdbcType=TIMESTAMP}, #{transType,jdbcType=VARCHAR}, 
       #{accountAmount,jdbcType=DECIMAL}, #{currency,jdbcType=VARCHAR}, #{transTime,jdbcType=TIMESTAMP}, 
@@ -98,7 +98,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="freezingId != null">
-        #{freezingId,jdbcType=VARCHAR},
+        #{freezingId,jdbcType=INTEGER},
       </if>
       <if test="accountNo != null">
         #{accountNo,jdbcType=VARCHAR},

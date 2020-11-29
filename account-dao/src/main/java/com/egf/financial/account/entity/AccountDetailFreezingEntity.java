@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class AccountDetailFreezingEntity {
-    private String freezingId;
+    private Integer freezingId;
 
     private String accountNo;
 
@@ -34,12 +34,9 @@ public class AccountDetailFreezingEntity {
 
     private Date updateTime;
 
-    public String getFreezingId() {
-        return freezingId;
-    }
 
-    public void setFreezingId(String freezingId) {
-        this.freezingId = freezingId == null ? null : freezingId.trim();
+    public void setFreezingId(Integer freezingId) {
+        this.freezingId = freezingId == null ? null : freezingId;
     }
 
     public String getAccountNo() {

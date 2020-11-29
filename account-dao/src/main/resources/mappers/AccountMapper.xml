@@ -35,7 +35,8 @@
     delete from T_EGF_ACCOUNT
     where account_id = #{accountId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.egf.financial.account.entity.AccountEntity">
+  <insert id="insert" useGeneratedKeys="true" keyProperty="account_Id"
+          parameterType="com.egf.financial.account.entity.AccountEntity">
     insert into T_EGF_ACCOUNT (account_id, customer_id, account_no, 
       account_name, account_type, account_status, 
       channel_id, trans_flow, account_amount, 
@@ -49,7 +50,8 @@
       #{currency,jdbcType=VARCHAR}, #{openDate,jdbcType=TIMESTAMP}, #{closeDate,jdbcType=TIMESTAMP}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.egf.financial.account.entity.AccountEntity">
+  <insert id="insertSelective"  useGeneratedKeys="true" keyProperty="account_id"
+          parameterType="com.egf.financial.account.entity.AccountEntity">
     insert into T_EGF_ACCOUNT
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="accountId != null">
