@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class AccountTypeManageController {
 
-    private  static final Logger logger = LoggerFactory.getLogger(AccountTypeManageController.class);
+    private static final Logger logger = LoggerFactory.getLogger(AccountTypeManageController.class);
 
-    public String  addAccountType(@RequestBody  String  acctTypeReq){
-        return  null;
+    public String addAccountType(@RequestBody String acctTypeReq) {
+        return null;
     }
 
-    public String  modifyAccountType(@RequestBody String acctTypeReq){
-        return  null;
+    public String modifyAccountType(@RequestBody String acctTypeReq) {
+        return null;
     }
 }
