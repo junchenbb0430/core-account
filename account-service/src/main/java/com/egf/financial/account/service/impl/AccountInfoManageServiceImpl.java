@@ -21,12 +21,15 @@ public class AccountInfoManageServiceImpl implements IAccountInfoManageService {
 
     @Override
     public AccountInfoBo openAccount(AccountInfoBo acctInfo) {
+        AccountInfoBo accountInfoBo = new AccountInfoBo();
         //1. 调用开户领域服务
         AccountDomainBo acctDomainBo = new AccountDomainBo();
-        accountManageServiceDomain.openAccount( acctDomainBo);
-
-
-        return null;
+        AccountDomainBo respAcctDomain = accountManageServiceDomain.openAccount( acctDomainBo);
+        accountInfoBo.setAcctNo(respAcctDomain.getAccountNo());
+        accountInfoBo.setAcctName(respAcctDomain.getAccountName());
+        accountInfoBo.setAcctStatus(respAcctDomain.getAccountStatus());
+        accountInfoBo.setAcctBalance(respAcctDomain.getAvailableAmount());
+        return accountInfoBo;
     }
 
     @Override
