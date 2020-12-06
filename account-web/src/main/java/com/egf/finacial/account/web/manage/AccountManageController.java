@@ -5,17 +5,17 @@ import com.egf.finacial.account.response.ResponseResult;
 import com.egf.finacial.account.vo.openAccount.AccountOpenReq;
 import com.egf.financial.account.bo.AccountInfoBo;
 import com.egf.financial.account.service.IAccountInfoManageService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/acctManage")
 @RestController
 public class AccountManageController {
 
+    private Logger logger = LoggerFactory.getLogger(AccountManageController.class);
     @Autowired
     private IAccountInfoManageService acctManageService;
 
@@ -25,9 +25,9 @@ public class AccountManageController {
      * @param openAcctInfo
      * @return
      */
-    @RequestMapping(name = "/openAcct",method = RequestMethod.POST)
+    @RequestMapping(path = "/openAcct",method = RequestMethod.POST)
     public String openAcctNo(@RequestBody String openAcctInfo) {
-
+        logger.info("账户开户请求报文是{}",openAcctInfo);
         // 解析报文对象
         AccountOpenReq accountOpenReq = JSONObject.parseObject(openAcctInfo, AccountOpenReq.class);
         AccountInfoBo acctInfo = new AccountInfoBo();
