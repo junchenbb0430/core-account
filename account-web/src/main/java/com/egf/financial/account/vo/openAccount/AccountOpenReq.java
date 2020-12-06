@@ -1,4 +1,4 @@
-package com.egf.finacial.account.vo.openAccount;
+package com.egf.financial.account.vo.openAccount;
 
 import lombok.Data;
 
@@ -14,10 +14,10 @@ public class AccountOpenReq {
     private   String  channelId;
 
     /**
-     * 渠道流水
+     * 交易流水
      */
     @NotBlank
-    private  String   channelFlow;
+    private  String   transFlow;
 
     /**
      * 渠道日期
@@ -49,8 +49,5 @@ public class AccountOpenReq {
     @NotBlank
     private   String  currency;
 
-    /**
-     * 业务流水
-     */
-    private   String transFlow;
+
 }

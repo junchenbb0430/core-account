@@ -1,4 +1,4 @@
-package com.egf.finacial.account.vo.openAccount;
+package com.egf.financial.account.vo.openAccount;
 
 import lombok.Data;
 

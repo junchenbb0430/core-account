@@ -1,7 +1,7 @@
 package com.egf.financial.account.test.web.manage;
 
 import com.alibaba.fastjson.JSONObject;
-import com.egf.finacial.account.vo.openAccount.AccountOpenReq;
+import com.egf.financial.account.vo.openAccount.AccountOpenReq;
 import com.egf.financial.account.date.EgfDateUtils;
 import com.egf.financial.account.enums.AccountTypeEnum;
 import com.egf.financial.account.enums.ChannelIdEnum;

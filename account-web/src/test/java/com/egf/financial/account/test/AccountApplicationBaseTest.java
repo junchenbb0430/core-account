@@ -1,6 +1,6 @@
 package com.egf.financial.account.test;
 
-import com.egf.finacial.account.AccountApplication;
+import com.egf.financial.account.AccountApplication;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

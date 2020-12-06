@@ -1,7 +1,7 @@
-package com.egf.finacial.account.web.query;
+package com.egf.financial.account.web.query;
 
 import com.alibaba.fastjson.JSONObject;
-import com.egf.finacial.account.vo.query.AccountQueryReq;
+import com.egf.financial.account.vo.query.AccountQueryReq;
 import com.egf.financial.account.service.IAccountInfoManageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

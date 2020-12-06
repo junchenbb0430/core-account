@@ -1,4 +1,4 @@
-package com.egf.finacial.account;
+package com.egf.financial.account;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;

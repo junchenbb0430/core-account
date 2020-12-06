@@ -1,4 +1,4 @@
-package com.egf.finacial.account.web.manage;
+package com.egf.financial.account.web.manage;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

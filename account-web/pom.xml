@@ -94,7 +94,7 @@
                 <!-- 集成spring-boot-starter-parent可以省略下面配置
                 <version>2.1.15.RELEASE</version> -->
                 <configuration>
-                    <mainClass>com.egf.finacial.account.AccountApplication</mainClass>
+                    <mainClass>com.egf.financial.account.AccountApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>

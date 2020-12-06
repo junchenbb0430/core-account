@@ -1,6 +1,7 @@
 package com.egf.financial.account.domain;
 
-import com.egf.financial.account.bo.AccountDomainBo;
+import com.egf.financial.account.bo.AccountDomainReqBo;
+import com.egf.financial.account.bo.AccountDomainResBo;
 
 /**
  *
@@ -13,7 +14,7 @@ public interface AccountManageServiceDomain {
      * @param acctDomainBo
      * @return
      */
-    public AccountDomainBo openAccount(AccountDomainBo acctDomainBo);
+    public AccountDomainResBo openAccount(AccountDomainReqBo acctDomainBo);
 
 
 }

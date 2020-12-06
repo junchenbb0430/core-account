@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
-public class AccountDomainBo {
+public class AccountDomainReqBo {
 
     private Integer accountId;
 

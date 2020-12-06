@@ -1,4 +1,4 @@
-package com.egf.finacial.account.response;
+package com.egf.financial.account.response;
 
 import lombok.Data;
 

@@ -1,9 +1,9 @@
-package com.egf.finacial.account.web.manage;
+package com.egf.financial.account.web.manage;
 
 import com.alibaba.fastjson.JSONObject;
-import com.egf.finacial.account.response.ResponseResult;
-import com.egf.finacial.account.vo.openAccount.AccountOpenReq;
-import com.egf.financial.account.bo.AccountInfoBo;
+import com.egf.financial.account.response.ResponseResult;
+import com.egf.financial.account.vo.openAccount.AccountOpenReq;
+import com.egf.financial.account.bo.AccounInfoReqBo;
 import com.egf.financial.account.service.IAccountInfoManageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,9 +30,9 @@ public class AccountManageController {
         logger.info("账户开户请求报文是{}",openAcctInfo);
         // 解析报文对象
         AccountOpenReq accountOpenReq = JSONObject.parseObject(openAcctInfo, AccountOpenReq.class);
-        AccountInfoBo acctInfo = new AccountInfoBo();
+        AccounInfoReqBo acctInfo = new AccounInfoReqBo();
         BeanUtils.copyProperties(accountOpenReq,acctInfo);
-        AccountInfoBo  accountInfoBo =  acctManageService.openAccount(acctInfo);
+        AccounInfoReqBo accountInfoBo =  acctManageService.openAccount(acctInfo);
         ResponseResult responseResult = new ResponseResult();
         responseResult.setData(accountInfoBo);
         return JSONObject.toJSONString(responseResult);
