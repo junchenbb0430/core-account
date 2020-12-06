@@ -1,9 +1,11 @@
 package com.egf.financial.account.test;
 
 import com.egf.finacial.account.AccountApplication;
+import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
@@ -11,14 +13,16 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-import org.junit.*;
-import java.util.*;/**
+
+import java.util.Map;
+/**
  * spring-boot-starter-test包含如下功能：
  * Junit4,Mockito,SpringTest,AssertJ,JsonPath,JSONassert
  * junit4需要添加@RunWith(SpringRunner.class)注解
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes= AccountApplication.class)
+
 public class AccountApplicationBaseTest {
 
 
@@ -46,8 +50,9 @@ public class AccountApplicationBaseTest {
 
         MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.post(path);
         builder.content(data);
-        MvcResult mvcResult = mvc.perform(builder.contentType("application/json")
-                .characterEncoding("UTF-8")).andReturn();
+        MvcResult mvcResult = mvc.perform(builder.accept(MediaType.parseMediaType("application/json;charset=UTF-8"))
+                                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andReturn();
         String result = mvcResult.getResponse().getContentAsString();
         return result;
     }

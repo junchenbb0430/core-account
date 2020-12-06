@@ -12,20 +12,22 @@ import org.junit.Test;
 
 public class AccountManageControllerTest extends AccountApplicationBaseTest {
 
-    private String  baseDir = "/acctManage";
+    private String  baseDir = "/coreAccount/acctManage";
 
     @Test
     public  void  testOpenAcctNo(){
 
         String reqPath = "/acctManage/openAcct";
         String jsonData = JSONObject.toJSONString(this.createAccountOpenReq());
-        System.out.println("请求数据:"+jsonData);
+        System.out.println(jsonData);
+       // jsonData = "{\"accountName\":\"张三\",\"accountType\":\"11\",\"channelDate\":\"20201206\",\"channelFlow\":\"0123451655787924\",\"channelId\":\"NETBANK\",\"currency\":\"CNY\",\"customerId\":\"0123456646142118\"}";
         try {
             String respJson = this.postForRest(jsonData,reqPath);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 
 
     private AccountOpenReq createAccountOpenReq() {
