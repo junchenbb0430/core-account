@@ -1,8 +1,6 @@
 package com.egf.financial.account.service.impl;
 
-import com.egf.financial.account.bo.AccounInfoReqBo;
-import com.egf.financial.account.bo.AccountDomainReqBo;
-import com.egf.financial.account.bo.AccountInfoResBo;
+import com.egf.financial.account.bo.*;
 import com.egf.financial.account.domain.AccountManageServiceDomain;
 import com.egf.financial.account.service.IAccountInfoManageService;
 import org.springframework.beans.BeanUtils;
@@ -27,7 +25,7 @@ public class AccountInfoManageServiceImpl implements IAccountInfoManageService {
         //1. 调用开户领域服务
         AccountDomainReqBo acctDomainBo = new AccountDomainReqBo();
         BeanUtils.copyProperties(acctInfo,acctDomainBo);
-        AccountDomainReqBo respAcctDomain = accountManageServiceDomain.openAccount( acctDomainBo);
+        AccountDomainResBo respAcctDomain = accountManageServiceDomain.openAccount( acctDomainBo);
         accountResBo.setAccountNo(respAcctDomain.getAccountNo());
         accountResBo.setAccountName(respAcctDomain.getAccountName());
         accountResBo.setAccountStatus(respAcctDomain.getAccountStatus());
@@ -36,7 +34,9 @@ public class AccountInfoManageServiceImpl implements IAccountInfoManageService {
     }
 
     @Override
-    public void transferInAccount(String debtAcctNo, String creditAcctNo, Double amount) {
+    public AccountTransferResBo transferInAccount(AccountTransferReqBo acctTransReq) {
 
+        //调用转账领域服务
+        return null;
     }
 }

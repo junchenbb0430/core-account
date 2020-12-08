@@ -1,10 +1,9 @@
 package com.egf.financial.account.domain;
 
-import com.egf.financial.account.bo.AccountDomainReqBo;
-import com.egf.financial.account.bo.AccountDomainResBo;
+import com.egf.financial.account.bo.*;
 
 /**
- *
+ *开户，销户，冻结账户，解冻账户服务，账户信息查询功能
  */
 public interface AccountManageServiceDomain {
 

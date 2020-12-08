@@ -3,6 +3,8 @@ package com.egf.financial.account.service;
 
 import com.egf.financial.account.bo.AccounInfoReqBo;
 import com.egf.financial.account.bo.AccountInfoResBo;
+import com.egf.financial.account.bo.AccountTransferReqBo;
+import com.egf.financial.account.bo.AccountTransferResBo;
 
 /**
  * 账户信息查询服务
@@ -28,5 +30,5 @@ public interface IAccountInfoManageService {
      * @param creditAcctNo
      * @param amount
      */
-    public  void  transferInAccount(String debtAcctNo,String creditAcctNo,Double  amount);
+    public AccountTransferResBo transferInAccount(AccountTransferReqBo acctTransReq);
 }
