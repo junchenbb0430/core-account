@@ -1,11 +1,17 @@
 package com.egf.financial.account.service.impl;
 
 import com.egf.financial.account.bo.*;
+import com.egf.financial.account.date.EgfDateUtils;
 import com.egf.financial.account.domain.AccountManageServiceDomain;
+import com.egf.financial.account.enums.AccountStatusEnum;
+import com.egf.financial.account.resp.ResponseResult;
 import com.egf.financial.account.service.IAccountInfoManageService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Service
 public class AccountInfoManageServiceImpl implements IAccountInfoManageService {
@@ -14,27 +20,37 @@ public class AccountInfoManageServiceImpl implements IAccountInfoManageService {
     private AccountManageServiceDomain  accountManageServiceDomain;
 
     @Override
-    public AccounInfoReqBo queryAccountDetailByAcctNo(String acctNo) {
+    public ResponseResult<AccountInfoResBo> queryAccountDetailByAcctNo(String acctNo) {
 
         return null;
     }
 
     @Override
-    public AccountInfoResBo openAccount(AccounInfoReqBo acctInfo) {
+    public ResponseResult<AccountInfoResBo> openAccount(AccounInfoReqBo acctInfo) {
         AccountInfoResBo accountResBo = new AccountInfoResBo();
+        ResponseResult<AccountInfoResBo> acctInfoResp = new ResponseResult<AccountInfoResBo>(accountResBo);
         //1. 调用开户领域服务
         AccountDomainReqBo acctDomainBo = new AccountDomainReqBo();
         BeanUtils.copyProperties(acctInfo,acctDomainBo);
-        AccountDomainResBo respAcctDomain = accountManageServiceDomain.openAccount( acctDomainBo);
-        accountResBo.setAccountNo(respAcctDomain.getAccountNo());
-        accountResBo.setAccountName(respAcctDomain.getAccountName());
-        accountResBo.setAccountStatus(respAcctDomain.getAccountStatus());
-        accountResBo.setAvailableBalance(respAcctDomain.getAvailableAmount());
-        return accountResBo;
+        acctDomainBo.setAccountStatus(AccountStatusEnum.ACCT_STATUS_OPENED.getAcctStatus());//开户状态
+        BigDecimal  initAmount = new BigDecimal("0.00");
+        acctDomainBo.setAccountAmount(initAmount);// 开户时默认金额为0
+        acctDomainBo.setAvailableAmount(initAmount);
+        acctDomainBo.setFreezingAmount(initAmount);
+        acctDomainBo.setOpenDate(EgfDateUtils.getCurrentDate());
+        acctDomainBo.setCreateTime(new Date());
+
+        ResponseResult<AccountDomainResBo> respAcctDomain = accountManageServiceDomain.openAccount( acctDomainBo);
+        AccountDomainResBo acctDomainRes =respAcctDomain.getData();
+        accountResBo.setAccountNo(acctDomainRes.getAccountNo());
+        accountResBo.setAccountName(acctDomainRes.getAccountName());
+        accountResBo.setAccountStatus(acctDomainRes.getAccountStatus());
+        accountResBo.setAvailableBalance(acctDomainRes.getAvailableAmount());
+        return acctInfoResp;
     }
 
     @Override
-    public AccountTransferResBo transferInAccount(AccountTransferReqBo acctTransReq) {
+    public ResponseResult<AccountTransferResBo> transferInAccount(AccountTransferReqBo acctTransReq) {
 
         //调用转账领域服务
         return null;

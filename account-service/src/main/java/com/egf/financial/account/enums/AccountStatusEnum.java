@@ -11,7 +11,8 @@ package com.egf.financial.account.enums;
  */
 public enum AccountStatusEnum {
 
-    ACCT_STATUS_OPENED("10","开户"),
+    ACCT_STATUS_OPENED("00","开户"),
+    ACCT_STATUS_FIRE_ACTIVE("10","激活"),
     ACCT_STATUS_NORMAL("11","正常"),
     ACCT_STATUS_FREEZE("12","冻结"),
     ACCT_STATUS_NOT_IN("13","禁止转入"),

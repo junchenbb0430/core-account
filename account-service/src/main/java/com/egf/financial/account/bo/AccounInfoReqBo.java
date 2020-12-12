@@ -46,4 +46,18 @@ public class AccounInfoReqBo {
      * 冻结金额
      */
     private   BigDecimal  freezeAmount;
+
+    /**
+     * 渠道标识
+     */
+    private  String channelId;
+    /**
+     * 交易流水
+     */
+    private  String  transFlow;
+
+    /**
+     * 币种
+     */
+    private  String currency;
 }

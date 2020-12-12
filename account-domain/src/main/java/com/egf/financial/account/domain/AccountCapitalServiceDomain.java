@@ -25,5 +25,7 @@ public interface AccountCapitalServiceDomain {
      */
     public AccountPayDomainResBo payAccount(AccountPayDomainReqBo acctPayDomainReq);
 
+    public  void  refundFromAccount();
 
+    public  void  reverseOfAccount();
 }

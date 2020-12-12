@@ -37,7 +37,7 @@ public class AccountManageControllerTest extends AccountApplicationBaseTest {
 
         acctOpenReq.setCustomerId( SequenceFlowGenerator.generateCustomerId());//客户编号，唯一不变。
         acctOpenReq.setChannelDate(EgfDateUtils.formatCurrentDate());//渠道日期
-        acctOpenReq.setChannelFlow(SequenceFlowGenerator.generateFixedLengthDigitalFlow());//渠道流水
+        acctOpenReq.setTransFlow(SequenceFlowGenerator.generateFixedLengthDigitalFlow());//渠道流水
         acctOpenReq.setChannelId(ChannelIdEnum.CHANNEL_ID_NETBANK.getChannelId());//渠道标识
         acctOpenReq.setCurrency(CurrencyTypeEnum.CURRENCY_TYPE_CNY.getCurrency());//币种
 

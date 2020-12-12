@@ -1,7 +1,8 @@
 package com.egf.financial.account.web.manage;
 
 import com.alibaba.fastjson.JSONObject;
-import com.egf.financial.account.response.ResponseResult;
+import com.egf.financial.account.bo.AccountInfoResBo;
+import com.egf.financial.account.resp.ResponseResult;
 import com.egf.financial.account.vo.openAccount.AccountOpenReq;
 import com.egf.financial.account.bo.AccounInfoReqBo;
 import com.egf.financial.account.service.IAccountInfoManageService;
@@ -32,10 +33,9 @@ public class AccountManageController {
         AccountOpenReq accountOpenReq = JSONObject.parseObject(openAcctInfo, AccountOpenReq.class);
         AccounInfoReqBo acctInfo = new AccounInfoReqBo();
         BeanUtils.copyProperties(accountOpenReq,acctInfo);
-        AccounInfoReqBo accountInfoBo =  acctManageService.openAccount(acctInfo);
-        ResponseResult responseResult = new ResponseResult();
-        responseResult.setData(accountInfoBo);
-        return JSONObject.toJSONString(responseResult);
+        ResponseResult<AccountInfoResBo> accountInfoResp =  acctManageService.openAccount(acctInfo);
+
+        return JSONObject.toJSONString(accountInfoResp);
     }
 
     /**

@@ -2,6 +2,8 @@ package com.egf.financial.account.date;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
@@ -47,7 +49,7 @@ public class EgfDateUtils {
     /**
      * 日期类
      */
-    public static final LocalDate  localDate = LocalDate.now();
+    public static final LocalDate  localCurrentDate = LocalDate.now();
 
     /**
      * 时间类
@@ -76,11 +78,29 @@ public class EgfDateUtils {
         return null;
     }
 
-    public  static Date parseDateStr2Date(String dateStr, String pattern){
-        return null;
+    /**
+     *
+     * @param dateStr
+     * @param pattern
+     * @return
+     */
+    public  static Date parseStrDate2Date(String dateStr, String pattern){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
+
+        LocalDate  localDate = LocalDate.parse(dateStr,formatter);
+        ZonedDateTime zonedDateTime = localDate.atStartOfDay(ZoneId.systemDefault());
+        return Date.from(zonedDateTime.toInstant());
     }
 
+    /**
+     * 获取当前日期yyyy-mm-dd对象
+     * @return
+     */
+    public static Date  getCurrentDate(){
+        ZonedDateTime zonedDateTime = localCurrentDate.atStartOfDay(ZoneId.systemDefault());
 
+        return Date.from(zonedDateTime.toInstant());
+    }
 
     public Date  getNextDate(Date date){
         return null;
@@ -134,5 +154,7 @@ public class EgfDateUtils {
 
     public static void  main(String[] args){
         System.out.println(EgfDateUtils.formatCurrentDate());
+         Date date = EgfDateUtils.parseStrDate2Date("2020-09-12",EgfDateUtils.STANDARD_DATE_PATTERN);
+        System.out.println(date);
     }
 }

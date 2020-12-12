@@ -1,6 +1,7 @@
 package com.egf.financial.account.mapper;
 
 import com.egf.financial.account.entity.AccountEntity;
+import org.apache.ibatis.annotations.Param;
 
 public interface AccountMapper {
     int deleteByPrimaryKey(Integer accountId);
@@ -15,4 +16,6 @@ public interface AccountMapper {
 
     int updateByPrimaryKey(AccountEntity record);
 
+    AccountEntity  selectEntityByCustomerIdAndAcctType(@Param("customerId")String customerId,
+                                                       @Param("accountType")String accountType);
 }

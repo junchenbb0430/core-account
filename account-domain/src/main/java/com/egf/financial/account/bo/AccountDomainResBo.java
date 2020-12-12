@@ -45,20 +45,41 @@ public class AccountDomainResBo {
      */
     private String transFlow;
 
+    /**
+     * 账户金额
+     */
     private BigDecimal accountAmount;
 
+    /**
+     * 可用金额
+     */
     private BigDecimal availableAmount;
 
+    /**
+     * 冻结金额
+     */
     private BigDecimal freezingAmount;
 
     private BigDecimal withdrawAmount;
 
+    /**
+     * 币种
+     */
     private String currency;
 
+    /**
+     * 开户日期
+     */
     private Date openDate;
 
+    /**
+     * 销户日期
+     */
     private Date closeDate;
 
+    /**
+     * 创建时间
+     */
     private Date createTime;
 
 
