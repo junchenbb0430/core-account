@@ -68,6 +68,7 @@ public class AccountManageServiceDomainImpl implements AccountManageServiceDomai
         accountDomainRes.setAccountType(accountEntityResult.getAccountType());
         accountDomainRes.setAccountStatus(accountEntityResult.getAccountStatus());
         accountDomainRes.setChannelId(accountEntityResult.getChannelId());
+        accountDomainRes.setAccountNo(accountEntityResult.getAccountNo());
         // 应答结果
         logger.info("客户号{}开户成功{}!",accountEntityResult.getAccountNo(), JSONObject.toJSONString(accountDomainRes));
         return responseResult;

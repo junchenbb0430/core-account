@@ -29,4 +29,9 @@ public class ResponseResult<T>{
         this.code = codeEnum.getCode();
         this.info = codeEnum.getInfo();
     }
+
+    public void setBizErrorCode(String returnCode ,String returnInfo){
+        this.code = returnCode;
+        this.info = returnInfo;
+    }
 }

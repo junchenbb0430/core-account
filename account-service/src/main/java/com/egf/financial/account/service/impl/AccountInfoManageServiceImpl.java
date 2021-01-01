@@ -46,6 +46,7 @@ public class AccountInfoManageServiceImpl implements IAccountInfoManageService {
         accountResBo.setAccountName(acctDomainRes.getAccountName());
         accountResBo.setAccountStatus(acctDomainRes.getAccountStatus());
         accountResBo.setAvailableBalance(acctDomainRes.getAvailableAmount());
+        acctInfoResp.setBizErrorCode(respAcctDomain.getCode(),respAcctDomain.getInfo());
         return acctInfoResp;
     }
 
