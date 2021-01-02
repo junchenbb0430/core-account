@@ -84,5 +84,34 @@
             <artifactId>gson</artifactId>
         </dependency>
     </dependencies>
+    <build>
+        <plugins>
+
+            <plugin>
+                <!--spring-boot-maven-plugin 插件表示可以打成可执行jar -->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <!-- 集成spring-boot-starter-parent可以省略下面配置
+                <version>2.1.15.RELEASE</version> -->
+                <configuration>
+                    <mainClass>com.egf.financial.account.AccountApplication</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal><!--把依赖的jar都打到新jar包：egf-account中-->
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+
+        <!--<filters>
+            <filter>${basedir}/src/main/resources/application-${spring.active}.properties</filter>
+        </filters>-->
+        <!--最终打成jar包名字-->
+        <finalName>egf-account</finalName>
+    </build>
 
 </project>
