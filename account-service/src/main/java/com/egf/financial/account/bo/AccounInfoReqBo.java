@@ -30,7 +30,7 @@ public class AccounInfoReqBo {
     /***
      * 客户号
      */
-    private   String  customerId;
+    private   Integer  customerId;
 
     /**
      * 可用余额

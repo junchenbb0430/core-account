@@ -1,11 +1,11 @@
-package com.egf.financial.account.bo;
+package com.egf.financial.account.bo.transfer;
 
 import lombok.Data;
 
 import java.math.BigDecimal;
 import java.util.Date;
 @Data
-public class AccountTransferDomainReqBo {
+public class AccountTransferDomainResBo {
     /**
      * 付款人账号
      */
@@ -27,9 +27,9 @@ public class AccountTransferDomainReqBo {
     private Date transDate;
 
     /**
-     * 交易流水
+     * 渠道流水
      */
-    private  String  transFlow;
+    private  String  channelFlow;
 
     /**
      * 收款人账号
@@ -45,4 +45,15 @@ public class AccountTransferDomainReqBo {
      * 交易金额
      */
     private BigDecimal transAmount;
+
+    /**
+     * 交易成功流水
+     */
+    private   String  transFlow;
+
+    /**
+     * 交易状态
+     */
+    private   String  transStatus;
+
 }

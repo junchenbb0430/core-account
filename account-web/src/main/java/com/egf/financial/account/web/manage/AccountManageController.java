@@ -33,6 +33,7 @@ public class AccountManageController {
         AccountOpenReq accountOpenReq = JSONObject.parseObject(openAcctInfo, AccountOpenReq.class);
         AccounInfoReqBo acctInfo = new AccounInfoReqBo();
         BeanUtils.copyProperties(accountOpenReq,acctInfo);
+        acctInfo.setCustomerId(Integer.valueOf(accountOpenReq.getCustomerId()));
         ResponseResult<AccountInfoResBo> accountInfoResp =  acctManageService.openAccount(acctInfo);
 
         return JSONObject.toJSONString(accountInfoResp);

@@ -4,9 +4,9 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class AccountEntity {
-    private Integer accountId;
+    private Long accountId;
 
-    private String customerId;
+    private Integer customerId;
 
     private String accountNo;
 
@@ -38,20 +38,20 @@ public class AccountEntity {
 
     private Date updateTime;
 
-    public Integer getAccountId() {
+    public Long getAccountId() {
         return accountId;
     }
 
-    public void setAccountId(Integer accountId) {
+    public void setAccountId(Long accountId) {
         this.accountId = accountId;
     }
 
-    public String getCustomerId() {
+    public Integer getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(String customerId) {
-        this.customerId = customerId == null ? null : customerId.trim();
+    public void setCustomerId(Integer customerId) {
+        this.customerId = customerId;
     }
 
     public String getAccountNo() {

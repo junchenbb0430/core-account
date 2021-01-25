@@ -3,7 +3,7 @@
 <mapper namespace="com.egf.financial.account.mapper.AccountDetailFlowMapper">
   <resultMap id="BaseResultMap" type="com.egf.financial.account.entity.AccountDetailFlowEntity">
     <id column="account_detail_id" jdbcType="INTEGER" property="accountDetailId" />
-    <result column="customer_id" jdbcType="VARCHAR" property="customerId" />
+    <result column="customer_id" jdbcType="INTEGER" property="customerId" />
     <result column="account_no" jdbcType="VARCHAR" property="accountNo" />
     <result column="account_name" jdbcType="VARCHAR" property="accountName" />
     <result column="account_type" jdbcType="VARCHAR" property="accountType" />
@@ -29,22 +29,22 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from T_EGF_ACCOUNT_DETAIL_FLOW
+    from  t_egf_account_detail_flow
     where account_detail_id = #{accountDetailId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from T_EGF_ACCOUNT_DETAIL_FLOW
+    delete from t_egf_account_detail_flow
     where account_detail_id = #{accountDetailId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.egf.financial.account.entity.AccountDetailFlowEntity">
-    insert into T_EGF_ACCOUNT_DETAIL_FLOW (account_detail_id, customer_id, account_no, 
+    insert into t_egf_account_detail_flow (account_detail_id, customer_id, account_no, 
       account_name, account_type, channel_id, 
       trans_flow, biz_type, trans_date, 
       trans_type, account_amount, currency, 
       opposite_account_no, opposite_account_name, 
       trans_time, trans_status, create_time, 
       update_time)
-    values (#{accountDetailId,jdbcType=INTEGER}, #{customerId,jdbcType=VARCHAR}, #{accountNo,jdbcType=VARCHAR}, 
+    values (#{accountDetailId,jdbcType=INTEGER}, #{customerId,jdbcType=INTEGER}, #{accountNo,jdbcType=VARCHAR},
       #{accountName,jdbcType=VARCHAR}, #{accountType,jdbcType=VARCHAR}, #{channelId,jdbcType=VARCHAR}, 
       #{transFlow,jdbcType=VARCHAR}, #{bizType,jdbcType=VARCHAR}, #{transDate,jdbcType=TIMESTAMP}, 
       #{transType,jdbcType=VARCHAR}, #{accountAmount,jdbcType=DECIMAL}, #{currency,jdbcType=VARCHAR}, 
@@ -53,7 +53,7 @@
       #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.egf.financial.account.entity.AccountDetailFlowEntity">
-    insert into T_EGF_ACCOUNT_DETAIL_FLOW
+    insert into t_egf_account_detail_flow
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="accountDetailId != null">
         account_detail_id,
@@ -115,7 +115,7 @@
         #{accountDetailId,jdbcType=INTEGER},
       </if>
       <if test="customerId != null">
-        #{customerId,jdbcType=VARCHAR},
+        #{customerId,jdbcType=INTEGER},
       </if>
       <if test="accountNo != null">
         #{accountNo,jdbcType=VARCHAR},
@@ -168,10 +168,10 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.egf.financial.account.entity.AccountDetailFlowEntity">
-    update T_EGF_ACCOUNT_DETAIL_FLOW
+    update t_egf_account_detail_flow
     <set>
       <if test="customerId != null">
-        customer_id = #{customerId,jdbcType=VARCHAR},
+        customer_id = #{customerId,jdbcType=INTEGER},
       </if>
       <if test="accountNo != null">
         account_no = #{accountNo,jdbcType=VARCHAR},
@@ -225,8 +225,8 @@
     where account_detail_id = #{accountDetailId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.egf.financial.account.entity.AccountDetailFlowEntity">
-    update T_EGF_ACCOUNT_DETAIL_FLOW
-    set customer_id = #{customerId,jdbcType=VARCHAR},
+    update t_egf_account_detail_flow
+    set customer_id = #{customerId,jdbcType=INTEGER},
       account_no = #{accountNo,jdbcType=VARCHAR},
       account_name = #{accountName,jdbcType=VARCHAR},
       account_type = #{accountType,jdbcType=VARCHAR},

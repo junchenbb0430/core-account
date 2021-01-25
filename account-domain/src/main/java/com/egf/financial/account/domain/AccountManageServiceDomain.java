@@ -1,7 +1,7 @@
 package com.egf.financial.account.domain;
 
-import com.egf.financial.account.bo.AccountDomainReqBo;
-import com.egf.financial.account.bo.AccountDomainResBo;
+import com.egf.financial.account.bo.acctmanage.AccountDomainReqBo;
+import com.egf.financial.account.bo.acctmanage.AccountDomainResBo;
 import com.egf.financial.account.resp.ResponseResult;
 
 /**

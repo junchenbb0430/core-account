@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.egf.financial.account.mapper.AccountMapper">
   <resultMap id="BaseResultMap" type="com.egf.financial.account.entity.AccountEntity">
-    <id column="account_id" jdbcType="INTEGER" property="accountId" />
-    <result column="customer_id" jdbcType="VARCHAR" property="customerId" />
+    <id column="account_id" jdbcType="BIGINT" property="accountId" />
+    <result column="customer_id" jdbcType="INTEGER" property="customerId" />
     <result column="account_no" jdbcType="VARCHAR" property="accountNo" />
     <result column="account_name" jdbcType="VARCHAR" property="accountName" />
     <result column="account_type" jdbcType="VARCHAR" property="accountType" />
@@ -25,41 +25,41 @@
     channel_id, trans_flow, account_amount, available_amount, freezing_amount, withdraw_amount, 
     currency, open_date, close_date, create_time, update_time
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from pay_account.T_EGF_ACCOUNT
-    where account_id = #{accountId,jdbcType=INTEGER}
+    from t_egf_account
+    where account_id = #{accountId,jdbcType=BIGINT}
   </select>
   <select id="selectEntityByCustomerIdAndAcctType" resultType="com.egf.financial.account.entity.AccountEntity">
     select <include refid="Base_Column_List"/>
-    from  pay_account.T_EGF_ACCOUNT
-    WHERE  customer_Id = #{customerId,jdbcType=VARCHAR}
+    from  t_egf_account
+    WHERE  customer_Id = #{customerId,jdbcType=INTEGER}
        and account_type= #{accountType,jdbcType=VARCHAR}
 
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from T_EGF_ACCOUNT
-    where account_id = #{accountId,jdbcType=INTEGER}
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_egf_account
+    where account_id = #{accountId,jdbcType=BIGINT}
   </delete>
   <insert id="insert" useGeneratedKeys="true" keyProperty="accountId"
           parameterType="com.egf.financial.account.entity.AccountEntity">
-    insert into T_EGF_ACCOUNT (account_id, customer_id, account_no, 
+    insert into t_egf_account (account_id, customer_id, account_no, 
       account_name, account_type, account_status, 
       channel_id, trans_flow, account_amount, 
       available_amount, freezing_amount, withdraw_amount, 
       currency, open_date, close_date, 
       create_time, update_time)
-    values (#{accountId,jdbcType=INTEGER}, #{customerId,jdbcType=VARCHAR}, #{accountNo,jdbcType=VARCHAR}, 
+    values (#{accountId,jdbcType=BIGINT}, #{customerId,jdbcType=VARCHAR}, #{accountNo,jdbcType=VARCHAR},
       #{accountName,jdbcType=VARCHAR}, #{accountType,jdbcType=VARCHAR}, #{accountStatus,jdbcType=VARCHAR}, 
       #{channelId,jdbcType=VARCHAR}, #{transFlow,jdbcType=VARCHAR}, #{accountAmount,jdbcType=DECIMAL}, 
       #{availableAmount,jdbcType=DECIMAL}, #{freezingAmount,jdbcType=DECIMAL}, #{withdrawAmount,jdbcType=DECIMAL}, 
       #{currency,jdbcType=VARCHAR}, #{openDate,jdbcType=TIMESTAMP}, #{closeDate,jdbcType=TIMESTAMP}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective"  useGeneratedKeys="true" keyProperty="accountId"
+  <insert id="insertSelective"   useGeneratedKeys="true" keyProperty="accountId"
           parameterType="com.egf.financial.account.entity.AccountEntity">
-    insert into pay_account.T_EGF_ACCOUNT
+    insert into t_egf_account
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="accountId != null">
         account_id,
@@ -115,10 +115,10 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="accountId != null">
-        #{accountId,jdbcType=INTEGER},
+        #{accountId,jdbcType=BIGINT},
       </if>
       <if test="customerId != null">
-        #{customerId,jdbcType=VARCHAR},
+        #{customerId,jdbcType=INTEGER},
       </if>
       <if test="accountNo != null">
         #{accountNo,jdbcType=VARCHAR},
@@ -168,10 +168,10 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.egf.financial.account.entity.AccountEntity">
-    update pay_account.T_EGF_ACCOUNT
+    update t_egf_account
     <set>
       <if test="customerId != null">
-        customer_id = #{customerId,jdbcType=VARCHAR},
+        customer_id = #{customerId,jdbcType=INTEGER},
       </if>
       <if test="accountNo != null">
         account_no = #{accountNo,jdbcType=VARCHAR},
@@ -219,11 +219,11 @@
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where account_id = #{accountId,jdbcType=INTEGER}
+    where account_id = #{accountId,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.egf.financial.account.entity.AccountEntity">
-    update T_EGF_ACCOUNT
-    set customer_id = #{customerId,jdbcType=VARCHAR},
+    update t_egf_account
+    set customer_id = #{customerId,jdbcType=INTEGER},
       account_no = #{accountNo,jdbcType=VARCHAR},
       account_name = #{accountName,jdbcType=VARCHAR},
       account_type = #{accountType,jdbcType=VARCHAR},
@@ -239,6 +239,6 @@
       close_date = #{closeDate,jdbcType=TIMESTAMP},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP}
-    where account_id = #{accountId,jdbcType=INTEGER}
+    where account_id = #{accountId,jdbcType=BIGINT}
   </update>
 </mapper>

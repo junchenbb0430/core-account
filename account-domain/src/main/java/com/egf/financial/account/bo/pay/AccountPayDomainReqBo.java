@@ -1,4 +1,4 @@
-package com.egf.financial.account.bo;
+package com.egf.financial.account.bo.pay;
 
 import lombok.Data;
 

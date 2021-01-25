@@ -4,11 +4,13 @@ import org.apache.commons.math3.random.RandomDataGenerator;
 
 public final  class SequenceFlowGenerator {
 
-    private  static final int min =1;
+    private  static final int MIN_VALUE =1;
 
-    private static final int max = Integer.MAX_VALUE;
+    private static final int MAX_VALUE = Integer.MAX_VALUE;
 
     private static final int  RANDOM_DIGITAL_LENGTH= 16;
+
+    private static  final int  CUSTOMER_LENGTH = String.valueOf(MAX_VALUE).length();
 
     /**
      * 生成客户号
@@ -18,10 +20,10 @@ public final  class SequenceFlowGenerator {
         StringBuilder buffer = new StringBuilder();
         RandomDataGenerator  randomDataGenerator = new RandomDataGenerator();
 
-        String  randomStr = String.valueOf(randomDataGenerator.nextInt(min,max));
-        int  leftLength = RANDOM_DIGITAL_LENGTH -randomStr.length();
+        String  randomStr = String.valueOf(randomDataGenerator.nextInt(MIN_VALUE,MAX_VALUE));
+        int  leftLength = CUSTOMER_LENGTH -randomStr.length();
         for(int i=0;i<leftLength;i++){
-                buffer.append(i);
+                buffer.append(i+1);
         }
         buffer.append(randomStr);
 
@@ -32,7 +34,7 @@ public final  class SequenceFlowGenerator {
         StringBuilder buffer = new StringBuilder();
         RandomDataGenerator  randomDataGenerator = new RandomDataGenerator();
 
-        String  randomStr = String.valueOf(randomDataGenerator.nextInt(min,max));
+        String  randomStr = String.valueOf(randomDataGenerator.nextInt(MIN_VALUE,MAX_VALUE));
         int  leftLength = RANDOM_DIGITAL_LENGTH -randomStr.length();
         for(int i=0;i<leftLength;i++){
             buffer.append(i);
@@ -48,7 +50,7 @@ public final  class SequenceFlowGenerator {
         if(length <=10){
             length = 10;
         }
-        String  randomStr = String.valueOf(randomDataGenerator.nextInt(min,max));
+        String  randomStr = String.valueOf(randomDataGenerator.nextInt(MIN_VALUE,MAX_VALUE));
         int  leftLength = length -randomStr.length();
         for(int i=0;i<leftLength;i++){
             buffer.append(i);

@@ -1,9 +1,9 @@
 package com.egf.financial.account.domain.impl;
 
-import com.egf.financial.account.bo.AccountPayDomainReqBo;
-import com.egf.financial.account.bo.AccountPayDomainResBo;
-import com.egf.financial.account.bo.AccountTransferDomainReqBo;
-import com.egf.financial.account.bo.AccountTransferDomainResBo;
+import com.egf.financial.account.bo.pay.AccountPayDomainReqBo;
+import com.egf.financial.account.bo.pay.AccountPayDomainResBo;
+import com.egf.financial.account.bo.transfer.AccountTransferDomainReqBo;
+import com.egf.financial.account.bo.transfer.AccountTransferDomainResBo;
 import com.egf.financial.account.domain.AccountCapitalServiceDomain;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

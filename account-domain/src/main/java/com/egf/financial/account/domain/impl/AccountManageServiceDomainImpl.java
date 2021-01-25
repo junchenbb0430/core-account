@@ -2,8 +2,8 @@ package com.egf.financial.account.domain.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.egf.financial.account.bo.AccountDomainReqBo;
-import com.egf.financial.account.bo.AccountDomainResBo;
+import com.egf.financial.account.bo.acctmanage.AccountDomainReqBo;
+import com.egf.financial.account.bo.acctmanage.AccountDomainResBo;
 import com.egf.financial.account.codes.BizErrorCodeEnum;
 import com.egf.financial.account.domain.AccountManageServiceDomain;
 import com.egf.financial.account.entity.AccountEntity;
@@ -39,6 +39,7 @@ public class AccountManageServiceDomainImpl implements AccountManageServiceDomai
         AccountDomainResBo accountDomainRes = new AccountDomainResBo();
         responseResult.setData(accountDomainRes);
         logger.info("开户请求信息为:{}",JSON.toJSONString(acctDomainBo));
+        logger.info("开户请求客户号：{}，账户类型:{}",acctDomainBo.getCustomerId(),acctDomainBo.getAccountType());
         // 1. 查询当前客户开立账户是否已经存在
         AccountEntity dbAcctEntity = accountMapper.selectEntityByCustomerIdAndAcctType(acctDomainBo.getCustomerId(),acctDomainBo.getAccountType());
         if(Objects.nonNull(dbAcctEntity)){
@@ -57,9 +58,9 @@ public class AccountManageServiceDomainImpl implements AccountManageServiceDomai
         // 1. 调用开户服务
         AccountEntity accountEntity = new AccountEntity();
         BeanUtils.copyProperties(acctDomainBo,accountEntity);
-
+        logger.info("插入开户请求报文:{}",JSONObject.toJSONString(accountEntity));
         accountMapper.insertSelective(accountEntity);
-
+        logger.info("开户请求成功:{}",JSONObject.toJSONString(accountEntity));
         // 2. 查询开户信息
         AccountEntity  accountEntityResult = accountMapper.selectByPrimaryKey(accountEntity.getAccountId());
         BeanUtils.copyProperties(accountEntityResult,accountDomainRes);

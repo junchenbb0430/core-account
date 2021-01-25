@@ -10,12 +10,12 @@ public interface AccountMapper {
 
     int insertSelective(AccountEntity record);
 
-    AccountEntity selectByPrimaryKey(Integer accountId);
+    AccountEntity selectByPrimaryKey(Long accountId);
 
     int updateByPrimaryKeySelective(AccountEntity record);
 
     int updateByPrimaryKey(AccountEntity record);
 
-    AccountEntity  selectEntityByCustomerIdAndAcctType(@Param("customerId")String customerId,
+    AccountEntity  selectEntityByCustomerIdAndAcctType(@Param("customerId")Integer customerId,
                                                        @Param("accountType")String accountType);
 }

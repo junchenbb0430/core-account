@@ -1,4 +1,4 @@
-package com.egf.financial.account.bo;
+package com.egf.financial.account.bo.acctmanage;
 
 import lombok.Data;
 
@@ -13,7 +13,7 @@ public class AccountDomainReqBo {
     /**
      * 客户号
      */
-    private String customerId;
+    private Integer customerId;
 
     /**
      * 账号

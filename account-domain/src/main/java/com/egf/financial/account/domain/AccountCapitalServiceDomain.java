@@ -1,9 +1,9 @@
 package com.egf.financial.account.domain;
 
-import com.egf.financial.account.bo.AccountPayDomainReqBo;
-import com.egf.financial.account.bo.AccountPayDomainResBo;
-import com.egf.financial.account.bo.AccountTransferDomainReqBo;
-import com.egf.financial.account.bo.AccountTransferDomainResBo;
+import com.egf.financial.account.bo.pay.AccountPayDomainReqBo;
+import com.egf.financial.account.bo.pay.AccountPayDomainResBo;
+import com.egf.financial.account.bo.transfer.AccountTransferDomainReqBo;
+import com.egf.financial.account.bo.transfer.AccountTransferDomainResBo;
 
 /**
  * 转账，付款，退款，冲正，冻结余额，解冻余额服务

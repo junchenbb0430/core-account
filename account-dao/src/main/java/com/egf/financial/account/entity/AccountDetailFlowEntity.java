@@ -6,7 +6,7 @@ import java.util.Date;
 public class AccountDetailFlowEntity {
     private Integer accountDetailId;
 
-    private String customerId;
+    private Integer customerId;
 
     private String accountNo;
 
@@ -48,12 +48,12 @@ public class AccountDetailFlowEntity {
         this.accountDetailId = accountDetailId;
     }
 
-    public String getCustomerId() {
+    public Integer getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(String customerId) {
-        this.customerId = customerId == null ? null : customerId.trim();
+    public void setCustomerId(Integer customerId) {
+        this.customerId = customerId;
     }
 
     public String getAccountNo() {

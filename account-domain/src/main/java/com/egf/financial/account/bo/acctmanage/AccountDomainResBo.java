@@ -1,4 +1,4 @@
-package com.egf.financial.account.bo;
+package com.egf.financial.account.bo.acctmanage;
 
 import lombok.Data;
 
@@ -8,12 +8,12 @@ import java.util.Date;
 @Data
 public class AccountDomainResBo {
 
-    private Integer accountId;
+    private Long accountId;
 
     /**
      * 客户号
      */
-    private String customerId;
+    private Integer customerId;
 
     /**
      * 账号
