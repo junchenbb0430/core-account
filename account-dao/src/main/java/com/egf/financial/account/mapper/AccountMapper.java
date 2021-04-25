@@ -3,6 +3,10 @@ package com.egf.financial.account.mapper;
 import com.egf.financial.account.entity.AccountEntity;
 import org.apache.ibatis.annotations.Param;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
+
 public interface AccountMapper {
     int deleteByPrimaryKey(Integer accountId);
 
@@ -18,4 +22,7 @@ public interface AccountMapper {
 
     AccountEntity  selectEntityByCustomerIdAndAcctType(@Param("customerId")Integer customerId,
                                                        @Param("accountType")String accountType);
+
+    List<AccountEntity> queryAccountInfoByDate(@Param("beginDate") LocalDateTime beginDate,
+                                               @Param("endDate") LocalDateTime endDate);
 }

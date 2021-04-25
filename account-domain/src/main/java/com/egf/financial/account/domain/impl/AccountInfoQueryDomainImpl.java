@@ -8,6 +8,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class AccountInfoQueryDomainImpl implements AccountInfoQueryDomain {
 
@@ -31,5 +36,13 @@ public class AccountInfoQueryDomainImpl implements AccountInfoQueryDomain {
     @Override
     public ResponseResult<AccountQueryDomainResBo> queryAccountCloseInfoByAcctNo(String accountNo) {
         return null;
+    }
+
+    @Override
+    public ResponseResult<List<AccountQueryDomainResBo>> queryAccountInfoByDate(LocalDateTime beginDate, LocalDateTime endDate) {
+        ResponseResult<List<AccountQueryDomainResBo>> acctInfoResp = new ResponseResult<List<AccountQueryDomainResBo>>();
+        List<AccountQueryDomainResBo> acctInfoList = new ArrayList<AccountQueryDomainResBo>();
+        acctInfoResp.setData(acctInfoList);
+        return acctInfoResp;
     }
 }

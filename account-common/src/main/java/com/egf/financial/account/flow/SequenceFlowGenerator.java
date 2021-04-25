@@ -60,5 +60,11 @@ public final  class SequenceFlowGenerator {
         return buffer.toString();
     }
 
+    public static void main(String[] args){
+        System.out.println( 1011732736 %2);
+        for(int i=0;i<4;i++){
+            System.out.println("生成客户号是 ："+SequenceFlowGenerator.generateCustomerId());
+        }
+    }
 
 }

@@ -38,6 +38,13 @@
        and account_type= #{accountType,jdbcType=VARCHAR}
 
   </select>
+  <!-- 查询开户信息，根据时间查询-->
+  <select id="queryAccountInfoByDate" resultType="com.egf.financial.account.entity.AccountEntity">
+      select <include refid="Base_Column_List"/>
+      from t_egf_account
+      where  create_time &gt; #{beginDate,jdbcType= TIMESTAMP}
+          and create_time &lt;= #{endDate,jdbcType=TIMESTAMP}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from t_egf_account
     where account_id = #{accountId,jdbcType=BIGINT}

@@ -7,6 +7,9 @@ import com.egf.financial.account.bo.AccountTransferReqBo;
 import com.egf.financial.account.bo.AccountTransferResBo;
 import com.egf.financial.account.resp.ResponseResult;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 /**
  * 账户信息查询服务
  */
@@ -27,4 +30,12 @@ public interface IAccountInfoManageService {
 
 
     public ResponseResult<AccountTransferResBo> transferInAccount(AccountTransferReqBo acctTransReq);
+
+    /**
+     *
+     * @param beginTime
+     * @param endDateTime
+     * @return
+     */
+    public   ResponseResult<List<AccountInfoResBo>> queryAccountInfoByDate(LocalDateTime beginTime,LocalDateTime endDateTime);
 }

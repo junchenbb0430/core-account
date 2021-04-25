@@ -74,5 +74,16 @@ public class AccountApplicationBaseTest {
         String result = mvcResult.getResponse().getContentAsString();
         return result;
     }
+
+    public String plainGet(Map<String,String> reqMap,String path) throws Exception {
+        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get(path);
+        for(Map.Entry<String,String> entry:reqMap.entrySet()){
+            builder.param(entry.getKey(), entry.getValue());
+        }
+        MvcResult mvcResult = mvc.perform(builder.accept("text/plain")
+                .characterEncoding("UTF-8")).andReturn();
+        String result = mvcResult.getResponse().getContentAsString();
+        return result;
+    }
 }
 

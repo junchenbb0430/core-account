@@ -4,6 +4,10 @@ import com.egf.financial.account.bo.query.AccountQueryDomainReqBo;
 import com.egf.financial.account.bo.query.AccountQueryDomainResBo;
 import com.egf.financial.account.resp.ResponseResult;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
+
 /**
  * 账户查询领域服务
  */
@@ -36,4 +40,12 @@ public interface AccountInfoQueryDomain {
      * @return
      */
     ResponseResult<AccountQueryDomainResBo>  queryAccountCloseInfoByAcctNo(String  accountNo);
+
+    /**
+     * 根据日期查询账户信息
+     * @param beginDate
+     * @param endDate
+     * @return
+     */
+    ResponseResult<List<AccountQueryDomainResBo>>  queryAccountInfoByDate(LocalDateTime beginDate, LocalDateTime endDate);
 }

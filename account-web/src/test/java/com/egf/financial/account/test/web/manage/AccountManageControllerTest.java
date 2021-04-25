@@ -26,7 +26,7 @@ public class AccountManageControllerTest extends AccountApplicationBaseTest {
     @Test
     public  void  testOpenAcctNo(){
         try {
-            for(int i=0;i<1;i++){
+            for(int i=0;i<40;i++){
 
                 String reqPath = "/acctManage/openAcct";
                 String jsonData = JSONObject.toJSONString(this.createAccountOpenReq());
@@ -35,7 +35,6 @@ public class AccountManageControllerTest extends AccountApplicationBaseTest {
 
                     String respJson = this.postForRest(jsonData,reqPath);
                     logger.info("开户返回报文是:{}",respJson);
-
             }
         } catch (Exception e) {
             e.printStackTrace();
